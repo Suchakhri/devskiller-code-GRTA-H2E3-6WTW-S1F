@@ -3,10 +3,10 @@ import ReadOnlyRow from "@/layouts/ReadOnlyRow";
 import EditableRow from "@/layouts/EditableRow";
 import { v4 as uuidv4 } from "uuid";
 
-export default function Index({ data }) {
-  const [uuid, setUuid] = useState("");
-  const [show, setShow] = useState(false);
-  const [contacts, setContacts] = useState([]);
+function Index({ data }) {
+  const [uuid, setUuid] = useState(uuidv4());
+  const [show, setShow] = useState(true);
+  const [contacts, setContacts] = useState(data);
   const [addFormData, setAddFormData] = useState({
     id: "",
     name: "",
@@ -208,12 +208,6 @@ export default function Index({ data }) {
     getID.value = "";
   };
 
-  useEffect(() => {
-    let generate_id = uuidv4();
-    setContacts(data);
-    setUuid(generate_id);
-    setShow(true);
-  }, []);
   return (
     <div className="container mx-auto">
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -357,3 +351,5 @@ export async function getServerSideProps() {
   // Pass data to the page via props
   return { props: { data } };
 }
+
+export default Index;
