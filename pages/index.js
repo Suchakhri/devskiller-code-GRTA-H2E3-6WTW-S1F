@@ -230,8 +230,8 @@ function Index({ data }) {
                 id="table-search"
                 required
                 ref={(input) => (getID = input)}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5"
-                placeholder="To show contact's details, type its ID..."
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[450px] pl-10 p-2.5"
+                placeholder="To show contact's details, type its ID... or Name..."
               />
             </form>
           </div>

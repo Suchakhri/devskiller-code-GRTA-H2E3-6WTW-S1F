@@ -3,16 +3,26 @@ import excuteQuery from "@/database/db";
 export default async function handler(req, res) {
   if (req.method === "GET") {
     try {
-      let sql_cmd_str = `SELECT * FROM vercel_aws.ContactsData WHERE id like '${req.query.id}%' OR name like '${req.query.id}%'  order by name limit 5`;
+      let final_result;
+      let sql_cmd_str = `SELECT * FROM vercel_aws.ContactsData WHERE id like '${req.query.id}%' order by name limit 5`;
       console.log(sql_cmd_str);
-      const results = await excuteQuery({
+      let results_id = await excuteQuery({
         query: sql_cmd_str,
       });
-      console.log(query);
-      if (results.length !== 0) {
-        return res.status(200).json(results);
+      if (results_id.length === 0) {
+        let sql_cmd_str = `SELECT * FROM vercel_aws.ContactsData WHERE name like '${req.query.id}%'  order by name limit 5`;
+        console.log(sql_cmd_str);
+        const results_name = await excuteQuery({
+          query: sql_cmd_str,
+        });
+        final_result = results_name;
       } else {
-        return res.status(404).json(results);
+        final_result = results_id;
+      }
+      if (final_result.length !== 0) {
+        return res.status(200).json(final_result);
+      } else {
+        return res.status(404).send();
       }
     } catch (error) {
       console.log(error);
