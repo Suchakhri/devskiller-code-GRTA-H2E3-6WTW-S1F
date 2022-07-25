@@ -123,7 +123,9 @@ const Index = () => {
     switch (method) {
       case "GET":
         try {
-          let results = await fetch(`/api/contacts/${contact.id}`);
+          let results = await fetch(
+            `https://devskiller-code-grta-h2-e3-6-wtw-s1-f.vercel.app/api/contacts/${contact.id}`
+          );
           const data = await results.json();
           setContacts(data);
           setShow(true);
@@ -133,10 +135,13 @@ const Index = () => {
         break;
       case "DELETE":
         try {
-          let del = await fetch(`/api/contacts/${contact.id}`, {
-            method: method,
-            headers: { "Content-Type": "text/plain" },
-          });
+          let del = await fetch(
+            `https://devskiller-code-grta-h2-e3-6-wtw-s1-f.vercel.app/api/contacts/${contact.id}`,
+            {
+              method: method,
+              headers: { "Content-Type": "text/plain" },
+            }
+          );
           setShow(true);
         } catch (error) {
           return error;
@@ -144,16 +149,19 @@ const Index = () => {
         break;
       case "PATCH":
         try {
-          let update = await fetch(`/api/contacts/${contact.id}`, {
-            method: "PATCH",
-            body: JSON.stringify({
-              id: contact.id,
-              name: contact.name,
-              phone: contact.phone,
-              addressLines: contact.addressLines,
-            }),
-            headers: { "Content-Type": "text/plain" },
-          });
+          let update = await fetch(
+            `https://devskiller-code-grta-h2-e3-6-wtw-s1-f.vercel.app/api/contacts/${contact.id}`,
+            {
+              method: "PATCH",
+              body: JSON.stringify({
+                id: contact.id,
+                name: contact.name,
+                phone: contact.phone,
+                addressLines: contact.addressLines,
+              }),
+              headers: { "Content-Type": "text/plain" },
+            }
+          );
         } catch (error) {
           return "Contact not found!!!";
         }
@@ -161,7 +169,9 @@ const Index = () => {
       case "POST":
         console.log(contact);
         try {
-          let results = await fetch(`/api/contacts/${contact.id}`);
+          let results = await fetch(
+            `https://devskiller-code-grta-h2-e3-6-wtw-s1-f.vercel.app/api/contacts/${contact.id}`
+          );
           const data = await results.json();
           console.log(data);
           if (data.length === 0) {
@@ -199,7 +209,9 @@ const Index = () => {
 
   useEffect(() => {
     const loadContacts = async () => {
-      let results = await fetch(`/api/contacts`);
+      let results = await fetch(
+        `https://devskiller-code-grta-h2-e3-6-wtw-s1-f.vercel.app/api/contacts`
+      );
       const data = await results.json();
       setContacts(data);
     };
