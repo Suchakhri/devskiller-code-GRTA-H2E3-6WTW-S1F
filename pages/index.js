@@ -218,7 +218,7 @@ export default function Index() {
     let generate_id = uuidv4();
     loadContacts();
     setUuid(generate_id);
-    // setShow(true);
+    setShow(true);
   }, []);
   return (
     <div className="container mx-auto">
