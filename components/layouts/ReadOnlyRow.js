@@ -1,6 +1,10 @@
 import React from "react";
 
-const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
+export default function ReadOnlyRow({
+  contact,
+  handleEditClick,
+  handleDeleteClick,
+}) {
   return (
     <tr key={contact.id} className="bg-white border-b hover:bg-gray-50 ">
       <td
@@ -33,6 +37,4 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
       </td>
     </tr>
   );
-};
-
-export default ReadOnlyRow;
+}

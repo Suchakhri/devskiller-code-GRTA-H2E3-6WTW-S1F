@@ -1,10 +1,10 @@
 import React from "react";
 
-const EditableRow = ({
+export default function EditableRow({
   editFormData,
   handleEditFormChange,
   handleCancelClick,
-}) => {
+}) {
   return (
     <tr key={editFormData.id} className="bg-white border-b  hover:bg-gray-50 ">
       <td
@@ -60,6 +60,4 @@ const EditableRow = ({
       </td>
     </tr>
   );
-};
-
-export default EditableRow;
+}
