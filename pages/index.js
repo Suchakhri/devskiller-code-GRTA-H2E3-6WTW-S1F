@@ -216,9 +216,9 @@ export default function index() {
   };
   useEffect(() => {
     let generate_id = uuidv4();
-    // loadContacts();
+    loadContacts();
     setUuid(generate_id);
-    setShow(true);
+    // setShow(true);
   }, []);
   return (
     <div className="container mx-auto">
