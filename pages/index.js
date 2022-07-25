@@ -3,7 +3,7 @@ import ReadOnlyRow from "@/layouts/ReadOnlyRow";
 import EditableRow from "@/layouts/EditableRow";
 import { v4 as uuidv4 } from "uuid";
 
-export default function index() {
+export default function Index() {
   const [uuid, setUuid] = useState("");
   const [show, setShow] = useState(false);
   const [contacts, setContacts] = useState([]);
