@@ -1,5 +1,4 @@
 import excuteQuery from "@/database/db";
-import { query } from "express";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
