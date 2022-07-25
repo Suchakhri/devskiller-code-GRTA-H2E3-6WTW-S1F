@@ -215,8 +215,9 @@ export default function index() {
     setContacts(data);
   };
   useEffect(() => {
-    loadContacts();
-    setUuid(uuidv4());
+    let generate_id = uuidv4();
+    // loadContacts();
+    setUuid(generate_id);
     setShow(true);
   }, []);
   return (
