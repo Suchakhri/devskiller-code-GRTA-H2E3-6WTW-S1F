@@ -207,15 +207,14 @@ export default function index() {
     fetchdata({ id: srch_ID }, "GET");
     getID.value = "";
   };
-
+  const loadContacts = async () => {
+    let results = await fetch(
+      `https://devskiller-code-grta-h2-e3-6-wtw-s1-f.vercel.app/api/contacts`
+    );
+    const data = await results.json();
+    setContacts(data);
+  };
   useEffect(() => {
-    const loadContacts = async () => {
-      let results = await fetch(
-        `https://devskiller-code-grta-h2-e3-6-wtw-s1-f.vercel.app/api/contacts`
-      );
-      const data = await results.json();
-      setContacts(data);
-    };
     loadContacts();
     setUuid(uuidv4());
     setShow(true);
