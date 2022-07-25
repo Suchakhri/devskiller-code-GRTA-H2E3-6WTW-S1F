@@ -2,7 +2,8 @@ import React, { useState, Fragment, useEffect } from "react";
 import ReadOnlyRow from "@/layouts/ReadOnlyRow";
 import EditableRow from "@/layouts/EditableRow";
 import { v4 as uuidv4 } from "uuid";
-const Index = () => {
+
+export default function index() {
   const [uuid, setUuid] = useState("");
   const [show, setShow] = useState(false);
   const [contacts, setContacts] = useState([]);
@@ -350,6 +351,4 @@ const Index = () => {
       </div>
     </div>
   );
-};
-
-export default Index;
+}
