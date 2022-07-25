@@ -3,7 +3,7 @@ import ReadOnlyRow from "@/layouts/ReadOnlyRow";
 import EditableRow from "@/layouts/EditableRow";
 import { v4 as uuidv4 } from "uuid";
 
-export default function Index() {
+export default function Index({ data }) {
   const [uuid, setUuid] = useState("");
   const [show, setShow] = useState(false);
   const [contacts, setContacts] = useState([]);
@@ -207,18 +207,12 @@ export default function Index() {
     fetchdata({ id: srch_ID }, "GET");
     getID.value = "";
   };
-  const loadContacts = async () => {
-    let results = await fetch(
-      `https://devskiller-code-grta-h2-e3-6-wtw-s1-f.vercel.app/api/contacts`
-    );
-    const data = await results.json();
-    setContacts(data);
-  };
+
   useEffect(() => {
     let generate_id = uuidv4();
-    loadContacts();
+    setContacts(data);
     setUuid(generate_id);
-    // setShow(true);
+    setShow(true);
   }, []);
   return (
     <div className="container mx-auto">
