@@ -3,8 +3,8 @@ import ReadOnlyRow from "@/layouts/ReadOnlyRow";
 import EditableRow from "@/layouts/EditableRow";
 import { v4 as uuidv4 } from "uuid";
 
-function Index({ data }) {
-  const [uuid, setUuid] = useState(uuidv4());
+function Index({ data, generate }) {
+  const [uuid, setUuid] = useState(generate);
   const [show, setShow] = useState(true);
   const [contacts, setContacts] = useState(data);
   const [addFormData, setAddFormData] = useState({
@@ -347,9 +347,9 @@ export async function getServerSideProps() {
     `https://devskiller-code-grta-h2-e3-6-wtw-s1-f.vercel.app/api/contacts`
   );
   const data = await results.json();
-
+  let generate = uuidv4();
   // Pass data to the page via props
-  return { props: { data } };
+  return { props: { data, generate } };
 }
 
 export default Index;
