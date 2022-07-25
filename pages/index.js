@@ -218,7 +218,7 @@ export default function Index() {
     let generate_id = uuidv4();
     loadContacts();
     setUuid(generate_id);
-    setShow(true);
+    // setShow(true);
   }, []);
   return (
     <div className="container mx-auto">
@@ -351,4 +351,15 @@ export default function Index() {
       </div>
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  // Fetch data from external API
+  let results = await fetch(
+    `https://devskiller-code-grta-h2-e3-6-wtw-s1-f.vercel.app/api/contacts`
+  );
+  const data = await results.json();
+
+  // Pass data to the page via props
+  return { props: { data } };
 }
