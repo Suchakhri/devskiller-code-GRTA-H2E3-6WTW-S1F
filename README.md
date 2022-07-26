@@ -32,3 +32,49 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+### GET api/contacts/<contact-id>
+
+- If a contact with `ID` value `<contact-id>` exists:
+  - the response HTTP status should be: `200 OK`;
+  - the response `Content-Type` header should be: `application/json`;
+  - the response body should be: a JSON object with details of that contact loaded from
+    the database (`ID`, `name`, `phone` and an array of strings `addressLines`).
+- If a contact with `ID` value `<contact-id>` does not exist:
+  - the response HTTP status should be: `404 Not Found`.
+
+### DELETE api/contacts/<contact-id>
+
+- If a contact with `ID` value `<contact-id>` exists:
+  - the response HTTP status should be: `204 No Content`;
+  - that contact is deleted, which means it is no longer included in the response to
+    `GET /contacts` requests and its details are no longer available when making
+    the `GET /contacts/<contact-id>` request.
+- If a contact with `ID` value `<contact-id>` does not exist:
+  - the response HTTP status should be: `404 Not Found`.
+
+### GET api/ping (has already been implemented)
+
+- The response HTTP status should be: `200 OK`.
+- The response `Content-Type` header should be: `text/plain`.
+- The response body should be: `pong`.
+
+### POST api/contacts/<contact-id>
+
+- Insert a contact with `ID` value `<contact-id>`
+- body: JSON.stringify({
+  id: contact.id,
+  name: contact.name,
+  phone: contact.phone,
+  addressLines: contact.addressLines,
+  }),
+
+### PATCH api/contacts/<contact-id>
+
+- Update a contact with `ID` value `<contact-id>`
+- body: JSON.stringify({
+  id: contact.id,
+  name: contact.name,
+  phone: contact.phone,
+  addressLines: contact.addressLines,
+  }),
