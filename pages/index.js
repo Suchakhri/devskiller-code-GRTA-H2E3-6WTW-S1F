@@ -125,7 +125,7 @@ function Index({ data, generate }) {
       case "GET":
         try {
           let results = await fetch(
-            `https://devskiller-code-grta-h2-e3-6-wtw-s1-f.vercel.app/api/contacts/${contact.id}`
+            `https://nextjs-restful-api-s1f.vercel.app/api/contacts/${contact.id}`
           );
           const data = await results.json();
           setContacts(data);
@@ -137,7 +137,7 @@ function Index({ data, generate }) {
       case "DELETE":
         try {
           let del = await fetch(
-            `https://devskiller-code-grta-h2-e3-6-wtw-s1-f.vercel.app/api/contacts/${contact.id}`,
+            `https://nextjs-restful-api-s1f.vercel.app/api/contacts/${contact.id}`,
             {
               method: method,
               headers: { "Content-Type": "text/plain" },
@@ -151,7 +151,7 @@ function Index({ data, generate }) {
       case "PATCH":
         try {
           let update = await fetch(
-            `https://devskiller-code-grta-h2-e3-6-wtw-s1-f.vercel.app/api/contacts/${contact.id}`,
+            `https://nextjs-restful-api-s1f.vercel.app/api/contacts/${contact.id}`,
             {
               method: "PATCH",
               body: JSON.stringify({
@@ -171,7 +171,7 @@ function Index({ data, generate }) {
         console.log(contact);
         try {
           let results = await fetch(
-            `https://devskiller-code-grta-h2-e3-6-wtw-s1-f.vercel.app/api/contacts/${contact.id}`
+            `https://nextjs-restful-api-s1f.vercel.app/api/contacts/${contact.id}`
           );
           const data = await results.json();
           console.log(data);
@@ -344,7 +344,7 @@ function Index({ data, generate }) {
 export async function getServerSideProps() {
   // Fetch data from external API
   let results = await fetch(
-    `https://devskiller-code-grta-h2-e3-6-wtw-s1-f.vercel.app/api/contacts`
+    `https://nextjs-restful-api-s1f.vercel.app/api/contacts`
   );
   const data = await results.json();
   let generate = uuidv4();
